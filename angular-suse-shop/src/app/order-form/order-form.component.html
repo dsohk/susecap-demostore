@@ -1,0 +1,54 @@
+<form (ngSubmit)="onSubmit()" #orderForm="ngForm">
+  <div class="container bg-1">  
+    <h2 class="header">Place your Order!</h2>
+  </div>
+  <div class="container bg-2">
+      
+    <h3> 1 Pick an item you like</h3>
+
+    <div class="row grid grid-pad">
+      <div *ngFor = "let product of products" 
+        class="product col-xs-4 col-ms-4 col-md-4"
+        [class.selected]=" product === selectedProduct "
+      >
+        <div>{{ product.name }}</div>
+        <a (click)="setProduct(product)">
+          <img src="{{ product.image }}" class="img-responsive img-circle" alt="{{ product.name }}" />
+        </a>
+        <div class="price">${{ product.price }}</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="container bg-3">   
+    <h3>2 How you pay?</h3>
+
+    <div class="row grid grid-pad">
+      <div *ngFor = "let paymethod of paymethods" 
+        class="paymethod col-xs-4 col-ms-4 col-md-4"
+        [class.selected]=" paymethod === selectedPaymethod "
+      >
+        <a (click)="setPaymethod(paymethod)">
+          <span class="glyphicon glyphicon-{{ paymethod.image }}" aria-hidden="true"></span>
+          <div>{{ paymethod.name }}</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div class="container bg-4">  
+    <h3> 3 What's your name?</h3>
+    <div class="form-group">
+        <label for="customer_name"></label>
+        <input type="text" class="form-control" id="customer_name" required 
+            placeholder="Your name here"  
+            [(ngModel)] = "order.customer_name" name="customer_name" 
+            #customer_name="ngModel">
+        <div [hidden]="customer_name.valid || customer_name.pristine"
+            class="alert alert-danger">
+            Please input your name
+          </div>
+    </div>
+    <div class="center"><button type="submit" class="btn">Submit</button> </div>    
+  </div>
+</form>

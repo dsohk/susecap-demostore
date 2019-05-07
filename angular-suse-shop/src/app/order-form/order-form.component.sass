@@ -1,0 +1,124 @@
+$dark_blue: #474e5d
+$green: #1abc9c
+$white: #ffffff
+$dark_gray: #555555
+$light_gray: #cccccc
+$light_green: #4caf50
+$background-color: #607d8b
+$price_font: "Times New Roman", Times, serif
+$header_font: "Shojumaru"
+
+
+
+[class*='col-']
+    float: left
+    padding-left: 20px
+    padding-right: 20px
+
+[class*='col-']:last-of-type
+    padding-right: 0
+
+button[type=submit]
+    background-color: $light_green
+    border: none
+    color: $white
+    padding: 16px 32px
+    text-decoration: none
+    margin: 4px 2px
+    cursor: pointer
+
+
+
+*,*:after,*:before
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+.col-1-4
+    width: 33.3%
+
+.price
+    text-algin: center
+    font-family: $price_font
+    font-size: 30px
+
+.product
+    padding: 20px
+    //border: 1px solid
+    text-align: center
+    //max-height: 250px
+    min-width: 120px
+    //background-color: $background-color
+    border-radius: 5px
+.paymethod
+    padding: 20px
+    text-align: center
+    
+.product[class*="selected"]
+    //border: 1px solid $white
+    background-color: $dark_blue
+    border-radius: 25px     
+
+.paymethod[class*="selected"]
+    //border: 1px solid $green    
+    background-color: $light_green
+    border-radius: 20px
+
+div.center
+    text-align: center
+
+.grid
+    margin: 0
+
+.grid-pad
+    //padding: 10px, 20px
+    
+
+.grid::after
+    content: ""
+    clear: both
+    display: table
+
+.grid-pad > [class*='col-']:last-of-type
+    padding-right: 20px
+
+.bg-1
+    background: $dark_blue
+    color: $white
+    text-align: center
+    
+
+.bg-2
+    background: $green
+    color: $white
+    padding-bottom: 30px
+
+.bg-3
+    background: $white
+    color: $dark_gray
+    padding-bottom: 30px
+
+.bg-4
+    background: $light_gray
+    color: $dark_gray
+    padding-bottom: 30px
+
+.header
+    font-family: $header_font
+    font-size: 20px
+    color: $white
+    margin: 30px
+
+.glyphicon
+    font-size: 50px
+
+//
+//@media (max-width:600px)
+//    .product
+//        font-size: 10px
+//        max-height: 75px
+
+//@media (max-width: 1024px)
+//    .grid 
+//        margin: 0
+//    
