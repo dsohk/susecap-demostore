@@ -1,4 +1,4 @@
-# suse-demo-store
+# Sample Application for SUSE Expert Days
 
 Sample micro-services based application for SUSE Demo
 
