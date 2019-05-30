@@ -8,7 +8,11 @@
     "node": ">=9.x"
   },
   "dependencies": {
+    "@vudash/datasource-rest": "^9.9.0",
+    "@vudash/datasource-value": "^9.9.0",
+    "@vudash/transformer-map": "^9.9.0",
     "vudash": "^9.9.0",
+    "vudash-widget-health": "^9.9.0",
     "vudash-widget-time": "^9.9.0"
   }
 }
