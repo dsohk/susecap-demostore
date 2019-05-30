@@ -1,18 +1,85 @@
 {
   "name": "simple-dashboard",
   "layout": {
-    "columns": 5,
-    "rows": 4
+    "columns": 4,
+    "rows": 5
+  },
+  "datasources":{
+    "datasource-sales":{
+      "module": "@vudash/datasource-rest",
+      "schedule": 1000,
+      "options":{
+        "method": "get",
+        "url": "http://localhost:8000/api/sales"  
+      
+      }
+    },
+    "datasource-title":{
+      "module": "@vudash/datasource-value",
+      "schedule": 30000,
+      "options":{
+        "value": " "
+      }
+    }
+  },
+  "css": {
+    "body":{
+      "font-size": "15px"
+    },
+    ".vudash-statistic > .label":{
+      "font-size": "36px",
+      "color": "#0DB056"
+    }
+
   },
   "widgets": [
-    {
-      "position": {
-        "x": 1,
-        "y": 0,
-        "w": 3,
-        "h": 1
-      },
-      "widget": "vudash-widget-time"
+    
+    { "position": {"x": 0, "y": 0, "w": 4, "h": 1 }, "widget": "vudash-widget-statistic",
+      "datasource": "datasource-title",
+      "options":{
+        "description": "Dashboard"
+      }
+    },
+    { "position": {"x": 0, "y": 1, "w": 3, "h": 1 }, "widget": "vudash-widget-time"},
+    { "position": {"x": 3, "y": 1, "w": 1, "h": 1 }, "widget": "vudash-widget-health"},
+    { "position": {"x": 0, "y": 2, "w": 2, "h": 2 }, "widget": "vudash-widget-statistic",
+      "datasource": "datasource-sales",
+      "transformations": [
+        {
+          "transformer": "@vudash/transformer-map",
+          "options":{
+            "value": "count"
+          }
+        }
+      ],
+      "history": 10000,
+      "options":{
+        "description": "order #",        
+        "font-ratio": 6,            
+        "colour": "#d17905"
+       
+      }
+    },   
+
+    { "position": {"x": 2, "y": 2, "w": 2, "h": 2 }, "widget": "vudash-widget-statistic",
+      "datasource": "datasource-sales",
+      "transformations": [
+        {
+          "transformer": "@vudash/transformer-map",
+          "options":{
+            "value": "total"
+          }
+        }
+      ],
+      "history": 10000,
+      "options":{
+        "description": "Sales",
+        "format": "$ %s",        
+        "font-ratio": 6,
+        "colour": "#f4c63d"
+        
+      }
     }
+
   ]
 }
