@@ -1,22 +1,25 @@
-$dark_blue: #474e5d
-$green: #1abc9c
+$gray_black: #242b1c
+$green: #0DB056
 $white: #ffffff
-$dark_gray: #555555
-$light_gray: #cccccc
-$light_green: #4caf50
-$background-color: #607d8b
-$price_font: "Times New Roman", Times, serif
-$header_font: "Shojumaru"
+$dark_gray: #2C3D45
+$dark_blue: #0f3139
+$light_gray: #CCCCCC
+$light_green: #02D35F
+$light_black: #607d8b
+$header_font: Shojumaru, Arial, sans-serif
+$subheader_font: "Wendy one", Arial, sans-serif
 
 
+
+.container
+    margin: 0
+    
 
 [class*='col-']
     float: left
     padding-left: 20px
     padding-right: 20px
 
-[class*='col-']:last-of-type
-    padding-right: 0
 
 button[type=submit]
     background-color: $light_green
@@ -36,33 +39,17 @@ button[type=submit]
 
 .col-1-4
     width: 33.3%
+.col-1-6
+    width: 50%
+.col-1-12
+    width: 100%
 
-.price
-    text-algin: center
-    font-family: $price_font
-    font-size: 30px
 
-.product
-    padding: 20px
-    //border: 1px solid
-    text-align: center
-    //max-height: 250px
-    min-width: 120px
-    //background-color: $background-color
-    border-radius: 5px
-.paymethod
-    padding: 20px
-    text-align: center
-    
-.product[class*="selected"]
-    //border: 1px solid $white
-    background-color: $dark_blue
-    border-radius: 25px     
-
-.paymethod[class*="selected"]
-    //border: 1px solid $green    
-    background-color: $light_green
-    border-radius: 20px
+h3
+    font-family: $subheader_font
+    font-size: 6vw
+    margin-top: 0
+    margin-bottom: 30px 
 
 div.center
     text-align: center
@@ -71,7 +58,7 @@ div.center
     margin: 0
 
 .grid-pad
-    //padding: 10px, 20px
+    padding: 10px, 20px
     
 
 .grid::after
@@ -79,46 +66,170 @@ div.center
     clear: both
     display: table
 
-.grid-pad > [class*='col-']:last-of-type
-    padding-right: 20px
 
-.bg-1
-    background: $dark_blue
+.box-1
+    background: $gray_black
     color: $white
-    text-align: center
     
+    text-align: center
+    padding: 20px
+    
+    .header
+        font-family: $header_font
+        font-size: 5vw
+        color: $white
+            
 
-.bg-2
+.box-2
     background: $green
     color: $white
-    padding-bottom: 30px
+    text-shadow: 2px 2px 4px $gray_black;
+    
+    padding: 30px 10px
+    text-align: center
+    div 
+        font-size: 5vw
+    .price
+        text-algin: center        
+        font-size: 6vw
 
-.bg-3
-    background: $white
-    color: $dark_gray
-    padding-bottom: 30px
+    .product
+        text-align: center
+        img 
+            max-width: 100%
+            height: auto
+            border-radius: 50%
 
-.bg-4
-    background: $light_gray
-    color: $dark_gray
-    padding-bottom: 30px
+    
+    .product[class*="selected"]
+        background-color: $dark_blue
+        border-radius: 25px
+        opacity: 0.85 
 
-.header
-    font-family: $header_font
-    font-size: 20px
+.box-3
+    background: $light_black
     color: $white
-    margin: 30px
+    text-shadow: 2px 2px 4px $gray_black;
+    padding: 30px 10px
+    text-align: center
+    a
+        text-decoration: none
 
-.glyphicon
-    font-size: 50px
+    [class*='fa-']
+        font-size: 10vw
+        color: $light_green
 
-//
-//@media (max-width:600px)
-//    .product
-//        font-size: 10px
-//        max-height: 75px
+    div
+        font-size: 5vw
+        color: $light_green  
+        margin-top: 10px  
+    .paymethod        
+        min-height: 120px  
+        text-align: center
+        padding: 15px 0
 
-//@media (max-width: 1024px)
-//    .grid 
-//        margin: 0
-//    
+    
+    .paymethod[class*="selected"]          
+        background-color: $dark_blue
+        opacity: 0.85
+        border-radius: 20px        
+        [class*='fa-'], div
+            color: $white     
+
+
+.box-4
+    background: $dark_gray
+    padding: 10px 30px    
+    vertical-align: center
+    button[type=submit]
+        background-color: $light_green
+        border: none
+        font-size: 20px
+        color: $white
+        text-shadow: 2px 2px 4px $gray_black
+        padding: 16px 32px
+        text-decoration: none
+        margin: 4px 2px
+        cursor: pointer
+        opacity: 1
+
+    button[disabled]
+        background-color: $light_black
+        cursor: none
+        text-shadow: none
+        opacity: 0.8
+
+.modal
+    display: block    
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    color: $white
+    font-size: 24px   
+    text-align: center
+    .modal-body
+        background-color: $dark_blue        
+        opacity: 1         
+        border-radius: 11px; 
+        width: 50% 
+        margin: 50% auto   
+        z-index: 1000      
+        
+    button
+        background-color: $light_green
+        border: none
+        font-size: 16px
+        color: $white
+        text-shadow: 2px 2px 4px $gray_black
+        padding: 16px 32px
+        text-decoration: none
+        margin: 4px 2px
+        cursor: pointer
+
+.modal-background
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -3
+    opacity: 0.75
+    background-color: $gray_black
+
+  
+
+
+        
+@media(min-width:800px)
+    .box-1       
+        .header
+            font-size: 4vw
+
+@media(min-width:1000px)
+    h3
+        font-size: 3vw
+    .box-1
+        padding: 20px 30px       
+        .header
+            font-size: 3vw
+
+    .box-2
+        padding: 90px   
+        div 
+            font-size: 3vw
+        .price
+            text-algin: center     
+            font-size: 3vw
+        .product
+            padding-left: 45px
+            padding-right: 45px
+    .box-3
+        padding: 90px  
+        div
+            font-size: 2vw
+            margin-top: 30px  
+        .paymethod        
+            min-height: 240px  
+            padding: 45px 0

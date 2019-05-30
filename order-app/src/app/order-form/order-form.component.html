@@ -1,42 +1,63 @@
 <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
-  <div class="container bg-1">
-    <h2 class="header">SUSE Expert Day 2019</h2>
+  <div *ngIf="show" class="modal">
+    <div class="modal-body">
+      <div class="grid">
+        <div class="col-1-12">
+          <p class="text-center confirm-message">{{message}}</p>
+        </div>
+        <div class="grid">
+          <div class="col-1-12">
+            <p class="confirm-button">
+              <button class="btn btn-yes" (click)="closeDialog()">OK</button>
+            </p>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="modal-background" ></div>
   </div>
-  <div class="container bg-2">
 
-    <h3>Choose Your Favorite</h3>
+  <div class="container box-1">  
+    <h2 class="header">Place your Order!</h2>
+  </div>
+  <div class="container box-2">
+      
+    <h3> What you like?</h3>
 
     <div class="row grid grid-pad">
-      <div *ngFor = "let product of products"
-        class="product col-xs-4 col-ms-4 col-md-4"
+      <div *ngFor = "let product of products" 
+        class="product col-1-4 col-xs-4"
         [class.selected]=" product === selectedProduct "
       >
         <div>{{ product.name }}</div>
         <a (click)="setProduct(product)">
-          <img src="{{ product.image }}" class="img-responsive img-circle" alt="{{ product.name }}" />
+          <img src="{{ product.image }}" alt="{{ product.name }}" />
         </a>
         <div class="price">${{ product.price }}</div>
       </div>
     </div>
 
   </div>
-  <div class="container bg-3">
-    <h3>Payment method</h3>
+  <div class="container box-3">   
+    <h3>How you pay?</h3>
 
     <div class="row grid grid-pad">
-      <div *ngFor = "let paymethod of paymethods"
-        class="paymethod col-xs-4 col-ms-4 col-md-4"
+      <div *ngFor = "let paymethod of paymethods" 
+        class="paymethod"
         [class.selected]=" paymethod === selectedPaymethod "
+        [class.col-1-6]=" paymethods.length == 2"
+        [class.col-1-4]=" paymethods.length == 3"
       >
-        <a (click)="setPaymethod(paymethod)">
-          <span class="glyphicon glyphicon-{{ paymethod.image }}" aria-hidden="true"></span>
+        <a (click)="setPaymethod(paymethod)">          
+          <span><i class="{{ paymethod.image }}" aria-hidden="true"></i></span>         
           <div>{{ paymethod.name }}</div>
         </a>
       </div>
     </div>
 
   </div>
-  <div class="container bg-4">
-    <div class="center"><button type="submit" class="btn">Order Now</button> </div>
+  <div class="container box-4"> 
+    
+    <div class="center"><button type="submit" class="btn" [disabled]="!validform">Submit</button> </div>    
   </div>
 </form>

@@ -26,31 +26,54 @@ export class OrderFormComponent implements OnInit {
   selectedProduct: Product;
   selectedPaymethod: Paymethod;
 
-  order = new Order(null, '',null,null,null);
-  
-  submitted = false;
+  order = new Order(null,null,null);
+  message = "";
+  success_msg = "Thank you!";
+  fail_msg = "Failed to submit order. Please retry!";
+  validform = false;
+  show = false;
+ 
 
   setProduct(product: Product): void {
     this.selectedProduct = product;
     this.order.price = product.price;
     this.order.product_id = product.id;
+    this.validform = (this.selectedProduct != null) && (this.selectedPaymethod != null);
   }
 
   setPaymethod(paymethod: Paymethod): void {
     this.selectedPaymethod = paymethod;
     this.order.paymethod_id = paymethod.id;
+    this.validform = (this.selectedProduct != null) && (this.selectedPaymethod != null);
   }
 
   onSubmit(){
-    this.submitted = true;
+    if (this.show || !this.validform) {
+      return;
+    }
+
     console.log("json: "+ this.getDiagnostic())
 
     this.oderService.addOrder(this.order)
-      .subscribe();
+      .subscribe( (order) => {     
+        this.message = this.success_msg;                  
+        this.showDialog();
+      });
 
   }
 
   getDiagnostic() {
     return JSON.stringify(this.order);
+  }
+
+  showDialog() {
+    this.show = true;
+    this.selectedProduct = null;
+    this.selectedPaymethod = null;
+  }
+
+  closeDialog(){
+    this.show = false;
+    this.validform = false;
   }
 }

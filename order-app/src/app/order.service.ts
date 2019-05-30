@@ -4,13 +4,10 @@ import { Observable, throwError } from 'rxjs';
 import { Order } from './order';
 import { catchError, retry } from 'rxjs/operators';
 
-//@Injectable({
-//  providedIn: 'root',
-//})
-
 const httpOptions = {
   headers: new HttpHeaders ({
     'Content-Type': 'application/json',
+    'Access-Contorl-Allow-Origin': '*'
   })
 }
 
@@ -23,7 +20,7 @@ export class OrderService {
   constructor(
     private http: HttpClient) {  }
 
-  private orderurl= 'api/order';
+  private orderurl= 'http://127.0.0.1:8000/api/order';
 
   addOrder (order: Order): Observable<Order> {
     return this.http.post<Order>(this.orderurl, order, httpOptions)
