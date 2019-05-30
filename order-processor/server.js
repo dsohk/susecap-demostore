@@ -1,36 +1,49 @@
-// Import the installed modules.
-const express = require('express');
-const bodyParser = require("body-parser");
-const responseTime = require('response-time')
-const redis = require('redis');
+var redis=require('redis');
 
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const REDIS_URL = process.env.REDIS_URL;
 
-// create and connect redis client to local instance.
-const client = redis.createClient(REDIS_URL);
+var client = redis.createClient();
 
-// Print redis errors to the console
-client.on('error', (err) => {
-  console.log("Error " + err);
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200
+};
+
+app.use(bodyParser.json());
+app.options('*', cors(corsOptions));
+//app.use(cors(corsOptions));
+
+app.listen(8000, function () {
+    console.log ("Server started!");
+    reset();
 });
 
-// middleware
-app.use(responseTime());
-app.use(bodyParser.urlencoded({extended : true}));
 
-// accept order
-app.post('/order', (req, res) => {
-  console.log(req.body);
+app.post('/api/order', cors(), (req, res, next) => {  
+    
+    console.log(req.body);
+    client.hincrby("orders", "count", 1);
+    client.hincrby("orders", "total", req.body.price);
+    res.status('201').send(req.body);
+})
+
+
+app.get('/api/sales', (req, res) => {   
+    client.HGETALL("orders", (err, value) => {
+        res.json(value);
+    });
 });
 
-
-// return stats to dashboard
-app.get('/stats', (req, res) => {
-  // return data to dashboard
+app.get('/api/reset', (req, res) => {
+    reset();
+    res.send("Done!");
 });
 
-app.listen(PORT, () => {
-  console.log('Server listening on port: ', PORT);
-});
+var reset = function () {
+    client.HMSET("orders",{"count": 0, "total": 0});
+}

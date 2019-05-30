@@ -2,16 +2,20 @@
   "name": "order-processor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "express": "^4.17.0",
-    "redis": "^2.8.0",
-    "response-time": "^2.3.2"
-  },
-  "devDependencies": {},
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/socket.io-client": "^1.4.32",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "nodemon": "^1.19.0",
+    "redis": "^2.8.0",
+    "socket.io": "^2.2.0"
+  },
+  "start": "node_modules/.bin/nodemon app.js"
 }
