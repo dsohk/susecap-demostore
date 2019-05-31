@@ -1,6 +1,7 @@
 $gray_black: #242b1c
 $green: #0DB056
 $white: #ffffff
+$black: #222222
 $dark_gray: #2C3D45
 $dark_blue: #0f3139
 $light_gray: #CCCCCC
@@ -58,7 +59,7 @@ div.center
     margin: 0
 
 .grid-pad
-    padding: 10px, 20px
+    padding: 10px 20px
     
 
 .grid::after
@@ -99,15 +100,14 @@ div.center
             max-width: 100%
             height: auto
             border-radius: 50%
-
     
     .product[class*="selected"]
-        background-color: $dark_blue
+        background-color: $black
         border-radius: 25px
-        opacity: 0.85 
+        opacity: 0.9 
 
 .box-3
-    background: $light_black
+    background: $dark_blue
     color: $white
     text-shadow: 2px 2px 4px $gray_black;
     padding: 30px 10px
@@ -130,11 +130,11 @@ div.center
 
     
     .paymethod[class*="selected"]          
-        background-color: $dark_blue
-        opacity: 0.85
-        border-radius: 20px        
-        [class*='fa-'], div
-            color: $white     
+        background-color: $black
+        opacity: 0.9
+        border-radius: 20px    
+        
+                
 
 
 .box-4
