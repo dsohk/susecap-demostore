@@ -9,8 +9,8 @@ import { OrderFormComponent } from './order-form/order-form.component';
 
 
 const appRoutes:Routes = [
-  { path: '', redirectTo: '/show', pathMatch: 'full' },
-  { path: 'show', component: OrderFormComponent },
+  //{ path: '', redirectTo: '/show', pathMatch: 'full' },
+  { path: '', component: OrderFormComponent }
   //{ path: 'site', component: QRCodeComponent }
 ]
 
