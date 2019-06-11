@@ -20,7 +20,7 @@ export class OrderService {
   constructor(
     private http: HttpClient) {  }
 
-  private orderurl= 'http://127.0.0.1:8000/api/order';
+  private orderurl= 'http://suse-order-processor.open-cloud.net/api/order';
 
   addOrder (order: Order): Observable<Order> {
     return this.http.post<Order>(this.orderurl, order, httpOptions)

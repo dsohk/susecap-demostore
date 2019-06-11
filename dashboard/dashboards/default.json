@@ -10,8 +10,8 @@
       "schedule": 1000,
       "options":{
         "method": "get",
-        "url": "http://localhost:8000/api/sales"  
-      
+        "url": "http://suse-order-processor.open-cloud.net/api/sales"
+
       }
     },
     "datasource-title":{
@@ -33,7 +33,7 @@
 
   },
   "widgets": [
-    
+
     { "position": {"x": 0, "y": 0, "w": 4, "h": 1 }, "widget": "vudash-widget-statistic",
       "datasource": "datasource-title",
       "options":{
@@ -54,12 +54,12 @@
       ],
       "history": 10000,
       "options":{
-        "description": "order #",        
-        "font-ratio": 6,            
+        "description": "order #",
+        "font-ratio": 6,
         "colour": "#d17905"
-       
+
       }
-    },   
+    },
 
     { "position": {"x": 2, "y": 2, "w": 2, "h": 2 }, "widget": "vudash-widget-statistic",
       "datasource": "datasource-sales",
@@ -74,10 +74,10 @@
       "history": 10000,
       "options":{
         "description": "Sales",
-        "format": "$ %s",        
+        "format": "$ %s",
         "font-ratio": 6,
         "colour": "#f4c63d"
-        
+
       }
     }
 

@@ -1,0 +1,8 @@
+
+master:
+  persistence:
+    storageClass: 'nfs-client'
+
+slave:
+  persistence:
+    storageClass: 'nfs-client'

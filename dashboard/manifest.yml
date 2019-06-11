@@ -1,0 +1,7 @@
+---
+applications:
+ - name: suse-order-dashboard
+   memory: 512M
+   stack: cflinuxfs3
+   env:
+     SERVER_URL: http://suse-order-dashboard.open-cloud.net

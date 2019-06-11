@@ -1,0 +1,5 @@
+---
+applications:
+ - name: suse-order-processor
+   memory: 512M
+   stack: cflinuxfs3

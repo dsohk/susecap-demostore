@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: order-app
+spec:
+  containers:
+  - name: order-app
+    image: dso814/order-app
+---
+

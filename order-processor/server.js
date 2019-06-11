@@ -7,7 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const REDIS_URL = process.env.REDIS_URL;
 
-var client = redis.createClient();
+var vcap_services = JSON.parse(process.env.VCAP_SERVICES);
+var uri = vcap_services.redis[0].credentials.uri;
+var client = redis.createClient(uri);
 
 var corsOptions = {
     origin: '*',
@@ -18,14 +20,14 @@ app.use(bodyParser.json());
 app.options('*', cors(corsOptions));
 //app.use(cors(corsOptions));
 
-app.listen(8000, function () {
+app.listen(process.env.VCAP_APP_PORT ||8001, function () {
     console.log ("Server started!");
     reset();
 });
 
 
-app.post('/api/order', cors(), (req, res, next) => {  
-    
+app.post('/api/order', cors(), (req, res, next) => {
+
     console.log(req.body);
     client.hincrby("orders", "count", 1);
     client.hincrby("orders", "total", req.body.price);
@@ -33,7 +35,7 @@ app.post('/api/order', cors(), (req, res, next) => {
 })
 
 
-app.get('/api/sales', (req, res) => {   
+app.get('/api/sales', (req, res) => {
     client.HGETALL("orders", (err, value) => {
         res.json(value);
     });

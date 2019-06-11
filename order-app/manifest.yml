@@ -1,0 +1,5 @@
+---
+applications:
+ - name: suse-order-app
+   memory: 64M
+   stack: cflinuxfs3

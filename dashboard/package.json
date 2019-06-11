@@ -13,6 +13,7 @@
     "@vudash/transformer-map": "^9.9.0",
     "vudash": "^9.9.0",
     "vudash-widget-health": "^9.9.0",
+    "vudash-widget-statistic": "^9.9.0",
     "vudash-widget-time": "^9.9.0"
   }
 }
