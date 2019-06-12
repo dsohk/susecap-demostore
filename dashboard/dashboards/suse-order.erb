@@ -1,0 +1,30 @@
+<% content_for :title do %>SUSE Expert Day Dashboard<% end %>
+<div class="gridster">
+  <ul>
+
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="1">
+      <div data-id="welcome" data-view="Text" data-title="Hello" data-text="SUSE Expert Day Demo"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-view="Clock"></div>
+      <i class="fa fa-clock-o icon-background"></i>
+    </li>
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="achieved" data-view="Meter" data-title="Today's Sales Target" data-moreinfo="Target: $10K per day" data-height="200" data-width="200" data-min="0" data-max="100" data-suffix="%"></div>
+    </li>
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="visitors" data-view="Number" data-title="Visitors"></div>
+    </li>
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="revenue" data-view="Number" data-title="Revenue" data-prefix="$"></div>
+    </li>
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="convergence" data-view="Graph" data-title="Delivery" style="background-color:#ff9618"></div>
+    </li>
+  </ul>
+</div>
