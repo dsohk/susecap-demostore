@@ -18,11 +18,11 @@
   </div>
 
   <div class="container box-1">  
-    <h2 class="header">Place your Order!</h2>
+    <h2 class="header">SUSE Expert Day On Sale</h2>
   </div>
   <div class="container box-2">
       
-    <h3> What you like?</h3>
+    <h3>What do you want?</h3>
 
     <div class="row grid grid-pad">
       <div *ngFor = "let product of products" 
@@ -39,7 +39,7 @@
 
   </div>
   <div class="container box-3">   
-    <h3>How you pay?</h3>
+    <h3>How will you pay?</h3>
 
     <div class="row grid grid-pad">
       <div *ngFor = "let paymethod of paymethods" 
@@ -56,8 +56,7 @@
     </div>
 
   </div>
-  <div class="container box-4"> 
-    
-    <div class="center"><button type="submit" class="btn" [disabled]="!validform">Submit</button> </div>    
+  <div class="container box-4">
+    <div class="center"><button type="submit" class="btn" [disabled]="!validform">Order Now</button> </div>    
   </div>
 </form>

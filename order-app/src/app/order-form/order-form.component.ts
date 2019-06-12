@@ -28,7 +28,7 @@ export class OrderFormComponent implements OnInit {
 
   order = new Order(null,null,null);
   message = "";
-  success_msg = "Thank you!";
+  success_msg = "Thank you for your order!";
   fail_msg = "Failed to submit order. Please retry!";
   validform = false;
   show = false;
