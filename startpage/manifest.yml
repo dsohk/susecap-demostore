@@ -1,0 +1,5 @@
+---
+applications:
+ - name: suse-expert-day
+   memory: 64M
+   stack: sle15

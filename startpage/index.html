@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>SUSE Expert Day - Download Apps</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="qrcode.min.js"></script>
+</head>
+<body>
+  <center>
+    <h1>SUSE Expert Day 2019</h1>
+    <h3>Scan the QR code below with your mobile phone to start place order</h3>
+    <div id="qrcode" style="width:800px; height:800px; margin-top:40px;"></div>
+  </center>
+  <script type="text/javascript">
+    var qrcode = new QRCode(document.getElementById("qrcode"), 'http://suse-order-app.open-cloud.net', {
+      width : 800,
+      height : 800
+    });
+  </script>
+</body>
