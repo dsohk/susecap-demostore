@@ -1,15 +1,22 @@
 <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
   <div *ngIf="show" class="modal">
     <div class="modal-body">
-      <div class="grid">
-        <div class="col-1-12">
-          <p class="text-center confirm-message">{{message}}</p>
-        </div>
-        <div class="grid">
+      <div class="grid progress-loader" [hidden] = "!ordering">
+        <div class="col-1-12" >
+            <mat-progress-spinner [mode] = "'indeterminate'" ></mat-progress-spinner>
+        </div>  
+      </div>
+      <div class="ack">
+        <div class="grid" [hidden] = "ordering">
           <div class="col-1-12">
-            <p class="confirm-button">
-              <button class="btn btn-yes" (click)="closeDialog()">OK</button>
-            </p>
+            <p class="text-center confirm-message">{{message}}</p>
+          </div>
+        </div>
+        <div class="grid" [hidden] = "ordering">
+          <div class="col-1-12">
+              <p class="confirm-button">
+                <button class="btn btn-yes" (click)="closeDialog()">OK</button>
+              </p>
           </div>
         </div>
       </div>      
@@ -20,7 +27,33 @@
   <div class="container box-1">  
     <h2 class="header">SUSE Expert Day On Sale</h2>
   </div>
-  <div class="container box-2">
+  <div class="container box-5">  
+    <label>Your Name: </label>
+    <input [(ngModel)] = "order.customer" placeholder="Your name"
+      class="form-control"
+      type="text" id="customer" name="customer"
+      #customer="ngModel" 
+      required   
+      maxlength="20"
+      pattern="([A-Za-z\s]+)"
+      (change) = "checkCustomer()"
+      [value] = "customer"
+      />
+    
+    <div *ngIf = "customer.invalid && (customer.dirty || customer.touched)"
+    class="alert is-critical" >
+      <div *ngIf = "customer.errors.required" class="alert is-critical">
+          Please input your name.
+      </div>
+      <div *ngIf = "customer.errors.maxlength" class="alert is-critical">
+          Name cannot exceed 20.
+      </div>
+      <div *ngIf = "customer.errors.pattern" class="alert is-critical">
+          Please use alphabetic characters only.
+      </div>
+    </div>
+</div>
+<div class="container box-2">
       
     <h3>What do you want?</h3>
 
@@ -59,4 +92,5 @@
   <div class="container box-4">
     <div class="center"><button type="submit" class="btn" [disabled]="!validform">Order Now</button> </div>    
   </div>
+
 </form>

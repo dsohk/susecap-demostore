@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { OrderFormComponent } from './order-form/order-form.component';
@@ -21,6 +23,8 @@ const appRoutes:Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(

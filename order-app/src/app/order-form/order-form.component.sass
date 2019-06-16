@@ -7,6 +7,7 @@ $dark_blue: #0f3139
 $light_gray: #CCCCCC
 $light_green: #02D35F
 $light_black: #607d8b
+$red: #aa0000
 $header_font: Arial, sans-serif
 $subheader_font: Arial, sans-serif
 
@@ -14,7 +15,12 @@ $subheader_font: Arial, sans-serif
 
 .container
     margin: 0
-    
+
+.alert
+    background-color: $red
+    color: $white
+    padding: 1px 5px
+     
 
 [class*='col-']
     float: left
@@ -50,7 +56,7 @@ h3
     font-family: $subheader_font
     font-size: 6vw
     margin-top: 0
-    margin-bottom: 30px 
+    margin-bottom: 15px 
 
 div.center
     text-align: center
@@ -73,8 +79,8 @@ div.center
     color: $white
     
     text-align: center
-    padding: 20px
-    
+    padding: 10px 20px
+
     .header
         font-family: $header_font
         font-size: 5vw
@@ -86,7 +92,7 @@ div.center
     color: $white
     text-shadow: 2px 2px 4px $gray_black
     
-    padding: 30px 10px
+    padding: 15px 10px
     text-align: center
     div 
         font-size: 5vw
@@ -94,7 +100,7 @@ div.center
         text-algin: center        
         font-size: 6vw
 
-    .product
+    .product 
         text-align: center
         img 
             max-width: 100%
@@ -111,7 +117,7 @@ div.center
     color: $white
     h3
         text-shadow: 1px 1px 4px $green
-    padding: 30px 10px
+    padding: 15px 10px
     text-align: center
     a
         text-decoration: none
@@ -160,6 +166,16 @@ div.center
         text-shadow: none
         opacity: 0.8
 
+.box-5
+    background: $dark_gray
+    height: 70px
+    padding: 15px 25px    
+    label
+        color: $white
+    input
+        width: 70%
+        height: 70%
+
 .modal
     display: block    
     position: fixed
@@ -170,14 +186,22 @@ div.center
     color: $white
     font-size: 24px   
     text-align: center
+
+
     .modal-body
-        background-color: $dark_blue        
         opacity: 1         
-        border-radius: 11px
+        border-radius: 11px        
         width: 50% 
         margin: 50% auto   
         z-index: 1000      
-        
+        .progress-loader
+            background-color: transparent
+            padding-left: 25%                        
+            stroke: $light_green
+        .ack
+            background-color: $dark_blue        
+
+
     button
         background-color: $light_green
         border: none
