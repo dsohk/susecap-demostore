@@ -47,7 +47,7 @@ export class OrderFormComponent implements OnInit {
   setProduct(product: Product): void {
     this.selectedProduct = product;
     this.order.price = product.price;
-    this.order.product_id = product.id;
+    this.order.product = product.name;
     this.validform = this.selectedProduct != null && 
                         this.selectedPaymethod != null && 
                         this.order.customer != null && 
@@ -56,7 +56,7 @@ export class OrderFormComponent implements OnInit {
 
   setPaymethod(paymethod: Paymethod): void {
     this.selectedPaymethod = paymethod;
-    this.order.paymethod_id = paymethod.id;
+    this.order.paymethod = paymethod.name;
     this.validform = this.selectedProduct != null && 
                         this.selectedPaymethod != null && 
                         this.order.customer != null && 
