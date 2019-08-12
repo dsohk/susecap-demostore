@@ -1,0 +1,9 @@
+# startpage
+startpage deploy:
+  script:
+    - echo "Hello startpage"
+  only:
+    changes:
+     - startpage/*
+  except:
+   - merge_requests
