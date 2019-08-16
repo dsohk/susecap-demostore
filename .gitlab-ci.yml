@@ -1,7 +1,8 @@
 # startpage
 startpage deploy:
   script:
-    - echo "Hello startpage"
+    - ./cf login -u $SUSECAP_USER -p $SUSECAP_PASS -a api.open-cloud.net
+    - ./cf push
   only:
     changes:
      - startpage/*
