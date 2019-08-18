@@ -208,13 +208,14 @@ var reset = function () {
 
     client.HMSET("orders",{"count": 0, "total": 0});
 
+    client.HDEL("products", ["T-shirt","Geeko","Cup"]);
+
     client.HMSET ("products:T-shirt", {"count":0, "total": 0});
     client.HMSET("products:Geeko", {"count":0, "total": 0});
     client.HMSET("products:Cup", {"count":0, "total": 0});
     client.del("all_products");
-    client.del("products*");
-    client.del("pays*");
 
+    client.HDEL("pays", ["Cash","Credit Card","Bitcoin", "SUSE Coin"]);
     client.HMSET ("pays:Cash", {"count":0, "total": 0});
     client.HMSET("pays:Credit Card", {"count":0, "total": 0});
     client.HMSET("pays:Bitcoin", {"count":0, "total": 0});
