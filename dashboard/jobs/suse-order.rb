@@ -13,7 +13,8 @@ SCHEDULER.every '2s', allow_overlapping: false do
   
   puts "visitors: #{visitors}"
   puts "revenue: #{revenue}"
-  puts "achieved (revenue / 10000) x 100% : #{achieved}"
+  SALES_TARGET = 75000
+  puts "achieved (revenue / SALES_TARGET) x 100% : #{achieved}"
   
   send_event('visitors',  current: visitors )
   send_event('revenue',  current: revenue )
