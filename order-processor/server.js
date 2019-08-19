@@ -208,18 +208,33 @@ var reset = function () {
 
     client.HMSET("orders",{"count": 0, "total": 0});
 
-    client.HDEL("products", ["T-shirt","Geeko","Cup"]);
-
     client.HMSET ("products:T-shirt", {"count":0, "total": 0});
     client.HMSET("products:Geeko", {"count":0, "total": 0});
     client.HMSET("products:Cup", {"count":0, "total": 0});
     client.del("all_products");
 
-    client.HDEL("pays", ["Cash","Credit Card","Bitcoin", "SUSE Coin"]);
     client.HMSET ("pays:Cash", {"count":0, "total": 0});
     client.HMSET("pays:Credit Card", {"count":0, "total": 0});
     client.HMSET("pays:Bitcoin", {"count":0, "total": 0});
     client.del("all_pays");
+
+    client.zadd("top_products_no", 0, "T-shirt");
+    client.zadd("top_products_no", 0, "Geeko");
+    client.zadd("top_products_no", 0, "Cup");
+
+    client.zadd("top_products_sales", 0, "T-shirt");
+    client.zadd("top_products_sales", 0, "Geeko");
+    client.zadd("top_products_sales", 0, "Cup");
+
+    client.zadd("top_pays_no", 0, "Cash");
+    client.zadd("top_pays_no", 0, "Credit Card");
+    client.zadd("top_pays_no", 0, "Bitcoin");
+    client.zadd("top_pays_no", 0, "SUSE Coin");
+
+    client.zadd("top_pays_sales", 0, "Cash");
+    client.zadd("top_pays_sales", 0, "Credit Card");
+    client.zadd("top_pays_sales", 0, "Bitcoin");
+    client.zadd("top_pays_sales", 0, "SUSE Coin");
 
 
     client.del("customers");
