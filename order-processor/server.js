@@ -234,6 +234,12 @@ var reset = function () {
     // client.zadd("top_pays_sales", 0, "Credit Card");
     // client.zadd("top_pays_sales", 0, "SUSE Coin");
 
+
+    client.del("top_pays_sales");
+    client.del("top_pays_no");
+    client.del("top_products_sales");
+    client.del("top_products_no");
+
     client.del("customers");
 }
 
