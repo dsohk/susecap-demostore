@@ -226,16 +226,13 @@ var reset = function () {
     client.zadd("top_products_sales", 0, "Geeko");
     client.zadd("top_products_sales", 0, "Cup");
 
-    client.zadd("top_pays_no", 0, "Cash");
-    client.zadd("top_pays_no", 0, "Credit Card");
-    client.zadd("top_pays_no", 0, "Bitcoin");
-    client.zadd("top_pays_no", 0, "SUSE Coin");
+    // client.zadd("top_pays_no", 0, "Cash");
+    // client.zadd("top_pays_no", 0, "Credit Card");
+    // client.zadd("top_pays_no", 0, "SUSE Coin");
 
-    client.zadd("top_pays_sales", 0, "Cash");
-    client.zadd("top_pays_sales", 0, "Credit Card");
-    client.zadd("top_pays_sales", 0, "Bitcoin");
-    client.zadd("top_pays_sales", 0, "SUSE Coin");
-
+    // client.zadd("top_pays_sales", 0, "Cash");
+    // client.zadd("top_pays_sales", 0, "Credit Card");
+    // client.zadd("top_pays_sales", 0, "SUSE Coin");
 
     client.del("customers");
 }
