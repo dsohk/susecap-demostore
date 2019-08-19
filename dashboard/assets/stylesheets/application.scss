@@ -151,6 +151,10 @@ h3 {
   vertical-align: middle;
 }
 
+.widget.widget-chartjs {
+  background-color: white;
+}
+
 .widget.status-warning {
   background-color: $background-warning-color-1;
   @include animation(status-warning-background, 2s, ease, infinite);

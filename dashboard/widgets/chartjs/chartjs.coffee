@@ -29,6 +29,13 @@ class Dashing.Chartjs extends Dashing.Widget
     @draw()
 
   draw: ->
+    Chart.plugins.register beforeDraw: (chartInstance, easing) ->
+      ctx = chartInstance.chart.ctx
+      ctx.fillStyle = 'white'
+      # your color here
+      chartArea = chartInstance.chartArea
+      ctx.fillRect chartArea.left, chartArea.top, chartArea.right - (chartArea.left), chartArea.bottom - (chartArea.top)
+      return  
     switch @type
       when "pie", "doughnut", "polarArea"
         @circularChart @id,
