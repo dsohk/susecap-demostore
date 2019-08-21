@@ -18,5 +18,6 @@ RUN wget -q -O "/usr/local/bin/gitlab-runner" "https://gitlab-runner-downloads.s
 
 # init sets up the environment and launches gitlab-runner
 COPY docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["run", "--working-directory=/home/gitlab-runner", "--user=gitlab-runner"]
