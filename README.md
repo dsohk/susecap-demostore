@@ -19,6 +19,18 @@ This is where some requirements need to be met before you can present this demo.
 
 https://microfocusinternational-my.sharepoint.com/:p:/g/personal/derek_so_suse_com/EQlWW14TqphMqQ1a4zzRaM0BeJ3KR6XAJNwJ285Wtgy71A?e=eeysz2
 
+# Store Architecture
+
+The sample store application is comprised of a simple micro-services based architecture:
+
+| Component                           | Description                           | URL                                                                                      |
+| :---------------------------------- | :------------------------------------ | :--------------------------------------------------------------------------------------- |
+| suse-expert-day | QR Code For Access To order app | [QR code for display](http://suse-expert-day.open-cloud.net/) |
+| [order-app](order-app/)             | Mobile-friendly web-order application | [http://suse-order-app.open-cloud.net/](http://suse-order-app.open-cloud.net/)           |
+| [order-processor](order-processor/) | Shop API service                      |                                                                                          |
+| [dashboard](dashboard/)             | Store Shop Owner Business Dashboard   | [http://suse-order-dashboard.open-cloud.net](http://suse-order-dashboard.open-cloud.net) |
+
+![GitHub Logo](/docs/images/arch.png)
 
 # Presenter's Setup Guide
 
@@ -35,18 +47,19 @@ npm install --save-dev
 npm audit fix
 ```
 
-
 # Useful URLS
 
 * [SUSE Cloud Application Platform console](https://console.open-cloud.net)
-* [Source Code](https://gitlab.geeko.land/suseapj/eshop2019)
+* [Prometheus Metrics Query UI](http://metrics.open-cloud.net)
 * Demo URLs
-  * [QR code for display](http://suse-expert-day.open-cloud.net/)
+  * 
   * [Shopping cart app](http://suse-order-app.open-cloud.net/)
   * [Dashboard](http://suse-order-dashboard.open-cloud.net)
-  * [Metrics](http://metrics.open-cloud-net)
+  * 
 
-# Reset the environment
+# Reset the demo environment
+
+To reset the demo environment, please follow the steps below.
 
 1. To clear all the data in dashboard, execute the following command line in your linux host.
 
@@ -82,15 +95,4 @@ sh ./deploy.sh
 ```
 
 
-
-
-
-
-# Behind the scene
-
-Sample micro-services based application for SUSE Demo
-
-1. order-app  => Simple order form (angular)
-2. order-processor => API server (node.js)
-3. dashboard => admin dashboard (vudash)
 
