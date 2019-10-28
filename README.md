@@ -19,13 +19,22 @@ This is where some requirements need to be met before you can present this demo.
 
 https://microfocusinternational-my.sharepoint.com/:p:/g/personal/derek_so_suse_com/EQlWW14TqphMqQ1a4zzRaM0BeJ3KR6XAJNwJ285Wtgy71A?e=eeysz2
 
-# Store Architecture
+# SUSE eShop Demo Environment
 
-The sample store application is comprised of a simple micro-services based architecture:
+This eshop demo application is hosted on SUSE Cloud Application Platform on public cloud.
+
+* [SUSE Cloud Application Platform console](https://console.open-cloud.net)
+* [Prometheus Metrics Query UI](http://metrics.open-cloud.net)
+
+> Login is required to access to the SUSE CAP and prometheus Query UI. Please visit to this [link](https://microfocusinternational-my.sharepoint.com/:p:/g/personal/derek_so_suse_com/EQlWW14TqphMqQ1a4zzRaM0BeJ3KR6XAJNwJ285Wtgy71A?e=eeysz2) for the credentials (Access is limited to SUSE employee only)
+
+# SUSE eShop Architecture
+
+The demo application is comprised of a simple micro-services based architecture:
 
 | Component                           | Description                           | URL                                                                                      |
 | :---------------------------------- | :------------------------------------ | :--------------------------------------------------------------------------------------- |
-| suse-expert-day | QR Code For Access To order app | [QR code for display](http://suse-expert-day.open-cloud.net/) |
+| [suse-expert-day](startpage/) | QR Code For Access To order app | [QR code for display](http://suse-expert-day.open-cloud.net/) |
 | [order-app](order-app/)             | Mobile-friendly web-order application | [http://suse-order-app.open-cloud.net/](http://suse-order-app.open-cloud.net/)           |
 | [order-processor](order-processor/) | Shop API service                      |                                                                                          |
 | [dashboard](dashboard/)             | Store Shop Owner Business Dashboard   | [http://suse-order-dashboard.open-cloud.net](http://suse-order-dashboard.open-cloud.net) |
@@ -34,7 +43,7 @@ The sample store application is comprised of a simple micro-services based archi
 
 # Presenter's Setup Guide
 
-> NOTE: As CAP used for this demo is in AWS, Internet access for the presenter including the audience needs to be included.
+> NOTE: This demo is hosted in public cloud which mean internet access is required for both the presenter and audience.
 
 Assuming the presenter will be using OS `openSUSE 15 installed with GNOME`, the initial setup will be as follows.
 
@@ -46,16 +55,6 @@ cd ~/susecap-demostore/order-app
 npm install --save-dev
 npm audit fix
 ```
-
-# Useful URLS
-
-* [SUSE Cloud Application Platform console](https://console.open-cloud.net)
-* [Prometheus Metrics Query UI](http://metrics.open-cloud.net)
-* Demo URLs
-  * 
-  * [Shopping cart app](http://suse-order-app.open-cloud.net/)
-  * [Dashboard](http://suse-order-dashboard.open-cloud.net)
-  * 
 
 # Reset the demo environment
 
