@@ -1,18 +1,20 @@
 
+# Order Processor API Service
 
-# redis in local docker
+This is order processor API service.
 
-start a service
+## Get Started 
 
-docker run --name my-redis -d redis
+This application is written with node.js. To get started to develop this application, follow the steps below.
 
-start a client
+```
+npm install --save-dev
+```
 
-docker run -it --name redis-client --rm --link my-redis:redis redis redis-cli -h redis -p 6379
+## Deploy to SUSE CAP
 
-
-# build docker
-
-docker build -t dso814/suse-order-processor:latest .
+```
+sh ./deploy.sh
+```
 
 

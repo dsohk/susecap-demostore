@@ -1,20 +1,18 @@
-# order-app
 
-## Build Docker image
+# Mobile-friendly web-based order app
 
-* To build the docker image: `docker build -t order-app:v1.0.0 .`
-* To run the docker image: `docker run -d -p 80:80 --name order-app -name order-app`
+![SUSE Demo Shop Mobile Frontend](/docs/images/order-app.png)
 
-## Building this project
+## Get Started 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+This application is written with node.js. To get started to develop this application, follow the steps below.
 
-* Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-* Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-* Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-* Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-* Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+npm install --save-dev
+```
 
-## Further help
+## Deploy to SUSE CAP
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+sh ./deploy.sh
+```
