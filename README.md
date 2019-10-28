@@ -1,4 +1,6 @@
-# SUSE CAP - Shopping Cart Demo
+# SUSE Shop Demo for SUSE Cloud Application Platform
+
+![SUSE Shop Demo](/docs/images/demo.png)
 
 This is a fictitious case study demonstrating how a company can leverage SUSE Cloud Application Platform (SUSE CAP) to provide agility infrastructure to scale their business as demands suddenly surge.
 
@@ -15,9 +17,7 @@ This document provides additional information, so go through the powerpoint pres
 This demo will showcase how easy it is to update the software.
 This is where some requirements need to be met before you can present this demo. The code is modified locally to present the additional payment method (bitcoin), and will need to be compiled locally before uploading the new application to AWS.
 
-## See demo guide
-
-https://microfocusinternational-my.sharepoint.com/:p:/g/personal/derek_so_suse_com/EQlWW14TqphMqQ1a4zzRaM0BeJ3KR6XAJNwJ285Wtgy71A?e=eeysz2
+To understand how the demo is supposed to execute by the presenters to a group of audience on the stage floor, please visit the [demo guide](https://microfocusinternational-my.sharepoint.com/:p:/g/personal/derek_so_suse_com/EQlWW14TqphMqQ1a4zzRaM0BeJ3KR6XAJNwJ285Wtgy71A?e=eeysz2) (Access is limited to SUSE Employee only)
 
 # SUSE eShop Demo Environment
 
@@ -26,7 +26,7 @@ This eshop demo application is hosted on SUSE Cloud Application Platform on publ
 * [SUSE Cloud Application Platform console](https://console.open-cloud.net)
 * [Prometheus Metrics Query UI](http://metrics.open-cloud.net)
 
-> Login is required to access to the SUSE CAP and prometheus Query UI. Please visit to this [link](https://microfocusinternational-my.sharepoint.com/:p:/g/personal/derek_so_suse_com/EQlWW14TqphMqQ1a4zzRaM0BeJ3KR6XAJNwJ285Wtgy71A?e=eeysz2) for the credentials (Access is limited to SUSE employee only)
+> Login is required to access to the SUSE CAP and prometheus Query UI. Please visit to this [link](https://microfocusinternational-my.sharepoint.com/:w:/g/personal/derek_so_suse_com/EcB6kMwMprBKlwnUgXuw89kBtldoCfFllPg2VfW_S0L2xw?e=Hya5Eo) for the credentials (Access is limited to SUSE employee only)
 
 # SUSE eShop Architecture
 
@@ -39,11 +39,13 @@ The demo application is comprised of a simple micro-services based architecture:
 | [order-processor](order-processor/) | Shop API service                      |                                                                                          |
 | [dashboard](dashboard/)             | Store Shop Owner Business Dashboard   | [http://suse-order-dashboard.open-cloud.net](http://suse-order-dashboard.open-cloud.net) |
 
-![GitHub Logo](/docs/images/arch.png)
+![SUSE Shop Demo Software Architecture](/docs/images/arch.png)
 
 # Presenter's Setup Guide
 
 > NOTE: This demo is hosted in public cloud which mean internet access is required for both the presenter and audience.
+
+## Setup OS
 
 Assuming the presenter will be using OS `openSUSE 15 installed with GNOME`, the initial setup will be as follows.
 
@@ -56,9 +58,66 @@ npm install --save-dev
 npm audit fix
 ```
 
+## Setup CF CLI
+
+To access to the SUSE CAP via CLI, please follow the steps below.
+
+1. Set SUSE CAP API endpoint for `cf-cli`
+
+```
+cf login -a https://api.open-cloud.net --skip-ssl-validation -u admin
+```
+
+2. Enter admin password to continue
+3. Select Organization: `demo`
+4. Select space: `dev`
+5. List all apps under `demo/dev` space with `cf apps` command like the example below.
+
+```
+$ cf apps
+Getting apps in org demo / space dev as admin...
+OK
+
+name                   requested state   instances   memory   disk   urls
+suse-order-dashboard   started           1/1         512M     1G     suse-order-dashboard.open-cloud.net
+suse-order-app         started           1/1         64M      1G     suse-order-app.open-cloud.net
+suse-order-processor   started           1/1         512M     1G     suse-order-processor.open-cloud.net
+suse-expert-day        started           1/1         64M      1G     suse-expert-day.open-cloud.net
+```
+
+## To add new payment option (in demo 2)
+
+1. Change to the `order-app` directory and edit the `paymethods.ts` file
+
+```
+cd ~/susecap-demostore/order-app
+vi src/app/paymethods.ts
+```
+
+2. Uncomment the 3rd payment option and ensure a comma has been added to the 2nd payment option like below.
+
+```ts
+import { Paymethod } from './paymethod'
+
+export const PAYMETHODS: Paymethod[] =[
+    {id: 1, name: 'Cash', image: 'fa fa-dollar-sign'},
+    {id: 2, name: 'Credit Card', image: 'fa fa-credit-card'},
+    {id: 3, name: 'SUSE Coin', image: 'fab fa-btc'}
+]
+```
+
+3. Save the file
+
+4. Deploy the change to SUSE CAP
+
+```
+sh ./deploy.sh
+```
+
+
 # Reset the demo environment
 
-To reset the demo environment, please follow the steps below.
+After the demo has been completed, please reset the demo environment with the steps below.
 
 1. To clear all the data in dashboard, execute the following command line in your linux host.
 
