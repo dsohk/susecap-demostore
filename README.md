@@ -134,11 +134,16 @@ At this stage, both v1 and v2 will be running on SUSE CAP with the v1 still serv
 ./switch-version.sh v1 v2
 ```
 
+At this point, the audience should see the order-app-v2 on their mobile phone.
+
 4. Rollback from v2 to v1
 
 ```
 ./switch-version.sh v2 v1
 ```
+
+Ask the audience to check if their mobile phone is showing order-app-v1 (no
+bitcoin) option.
 
 # Reset the demo environment
 
