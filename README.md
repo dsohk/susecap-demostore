@@ -152,5 +152,12 @@ cd ~/susecap-demostore/order-app
 sh ./deploy.sh
 ```
 
+# Feedback
+
+Please submit an issue ticket to help us improve the demo application.
+
+# Credits
+
+Special thanks to @byuenhb for their contribution.
 
 

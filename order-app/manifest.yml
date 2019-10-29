@@ -1,5 +1,6 @@
 ---
 applications:
- - name: suse-order-app
-   memory: 64M
+ - memory: 64M
    stack: sle15
+   routes:
+     - route: suse-order-app.open-cloud.net

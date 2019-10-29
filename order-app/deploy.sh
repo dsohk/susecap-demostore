@@ -1,7 +1,7 @@
-#! /bin/bash
+#! /bin/bash +x
 
-npm run-script buildprod
-cp Staticfile dist/angular-suse-shop/
-cp manifest.yml dist/angular-suse-shop/
-cd dist/angular-suse-shop
-cf push
+ng build --prod
+cp Staticfile dist/
+cp manifest.yml dist/
+cd dist
+cf push suse-order-app-v2 -f manifest.yml
