@@ -85,16 +85,30 @@ suse-order-processor   started           1/1         512M     1G     suse-order-
 suse-expert-day        started           1/1         64M      1G     suse-expert-day.open-cloud.net
 ```
 
-## To add new payment option (in demo 2)
+## Demo 2 - Blue/green deployment and rollback
 
-1. Change to the `order-app` directory and edit the `paymethods.ts` file
+There are 2 versions of the order app:
+
+* v1 - order-app with cash and credit card payment options only
+* v2 - order-app with cash, credit card and bitcoin payment options.
+
+1. Before demo, deploy the first version of order-app
+
+Make sure the order-app-v1 has been deployed to SUSE CAP. If not, execute the following commands.
+
+```
+cd ~/susecap-demostore/order-app
+./deploy-v1.sh
+```
+
+2. Demo code change (by adding bitcoin payment option in the order-app) and deploy v2
 
 ```
 cd ~/susecap-demostore/order-app
 vi src/app/paymethods.ts
 ```
 
-2. Uncomment the 3rd payment option and ensure a comma has been added to the 2nd payment option like below.
+Uncomment the 3rd payment option and ensure a comma has been added to the 2nd payment option like below.
 
 ```ts
 import { Paymethod } from './paymethod'
@@ -106,14 +120,25 @@ export const PAYMETHODS: Paymethod[] =[
 ]
 ```
 
-3. Save the file
-
-4. Deploy the change to SUSE CAP
+Save the file and deploy the change to SUSE CAP
 
 ```
 sh ./deploy.sh
 ```
 
+At this stage, both v1 and v2 will be running on SUSE CAP with the v1 still serving.
+
+3. Switch the route to serve v2 (new app) instead of v1.
+
+```
+./switch-version.sh v1 v2
+```
+
+4. Rollback from v2 to v1
+
+```
+./switch-version.sh v2 v1
+```
 
 # Reset the demo environment
 

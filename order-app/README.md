@@ -3,7 +3,7 @@
 
 ![SUSE Demo Shop Mobile Frontend](/docs/images/order-app.png)
 
-## Get Started 
+## Get Started
 
 This application is written with node.js. To get started to develop this application, follow the steps below.
 
@@ -16,3 +16,4 @@ npm install --save-dev
 ```
 sh ./deploy.sh
 ```
+
