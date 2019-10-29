@@ -92,7 +92,7 @@ There are 2 versions of the order app:
 * v1 - order-app with cash and credit card payment options only
 * v2 - order-app with cash, credit card and bitcoin payment options.
 
-1. Before demo, deploy the first version of order-app
+### 1. Before demo, deploy the first version of order-app
 
 Make sure the order-app-v1 has been deployed to SUSE CAP. If not, execute the following commands.
 
@@ -101,7 +101,7 @@ cd ~/susecap-demostore/order-app
 ./deploy-v1.sh
 ```
 
-2. Demo code change (by adding bitcoin payment option in the order-app) and deploy v2
+### 2. Demo code change (by adding bitcoin payment option in the order-app) and deploy v2
 
 ```
 cd ~/susecap-demostore/order-app
@@ -128,7 +128,7 @@ sh ./deploy.sh
 
 At this stage, both v1 and v2 will be running on SUSE CAP with the v1 still serving.
 
-3. Switch the route to serve v2 (new app) instead of v1.
+### 3. Switch the route to serve v2 (new app) instead of v1.
 
 ```
 ./switch-version.sh v1 v2
@@ -136,7 +136,7 @@ At this stage, both v1 and v2 will be running on SUSE CAP with the v1 still serv
 
 At this point, the audience should see the order-app-v2 on their mobile phone.
 
-4. Rollback from v2 to v1
+### 4. Rollback from v2 to v1
 
 ```
 ./switch-version.sh v2 v1
