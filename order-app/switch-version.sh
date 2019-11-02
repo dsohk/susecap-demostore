@@ -6,8 +6,7 @@ if [ "$#" -ne 2 ]; then
   exit
 fi
 
-# switch from v1 to v2
-# ./switch-version v1 v2
+# switch version
 cf map-route suse-order-app-$2 open-cloud.net -n suse-order-app
 cf unmap-route suse-order-app-$1 open-cloud.net -n suse-order-app
 
