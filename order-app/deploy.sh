@@ -10,8 +10,8 @@ cd dist
 cf push suse-order-app-v2 -f manifest.yml
 
 # switch URL point to v2
-cf map-route suse-order-app-v2 open-cloud.net -n suse-order-app
 cf unmap-route suse-order-app-v1 open-cloud.net -n suse-order-app
+cf map-route suse-order-app-v2 open-cloud.net -n suse-order-app
 
 # print result
 cf apps

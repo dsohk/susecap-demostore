@@ -1,4 +1,4 @@
-#! /bin/bash +x
+#! /bin/bash -e
 
 # Array of customers
 customers=("John" "Peter" "Derek" "Michael")
