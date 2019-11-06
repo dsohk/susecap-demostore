@@ -29,8 +29,8 @@ app.listen(process.env.VCAP_APP_PORT ||8001, function () {
 
 app.post('/api/order', cors(), (req, res, next) => {
 
+  try {
     console.log(req.body);
-
     // increment orders
     client.hincrby("orders", "count", 1);
     client.hincrby("orders", "total", req.body.price);
@@ -47,10 +47,17 @@ app.post('/api/order', cors(), (req, res, next) => {
     client.hincrby("pays:"+req.body.paymethod,"count",1);
     client.sadd("all_pays", req.body.paymethod);
 
-
     //increment customer
     client.zincrby("customers",1, req.body.customer);
     res.status('201').send(req.body);
+
+  } catch(e) {
+    console.log('error found:');
+    console.log(req.body);
+    console.log(e);
+    res.status('500').send(e);
+  }
+
 })
 
 
