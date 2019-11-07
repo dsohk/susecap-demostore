@@ -5,5 +5,5 @@
 
 while true; do
   curl --head http://suse-order-app.open-cloud.net
-  sleep 1
+  # sleep 1
 done
