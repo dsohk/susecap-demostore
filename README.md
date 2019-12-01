@@ -126,24 +126,16 @@ Save the file and deploy the change to SUSE CAP
 sh ./deploy.sh
 ```
 
-At this stage, both v1 and v2 will be running on SUSE CAP with the v1 still serving.
+The order-app should now be showing 3 payment options.
 
-### 3. Switch the route to serve v2 (new app) instead of v1.
-
-```
-./switch-version.sh v1 v2
-```
-
-At this point, the audience should see the order-app-v2 on their mobile phone.
-
-### 4. Rollback from v2 to v1
+### 3. Rollback from v2 to v1
 
 ```
 ./switch-version.sh v2 v1
 ```
 
-Ask the audience to check if their mobile phone is showing order-app-v1 (no
-bitcoin) option.
+Ask the audience to check if their mobile phone is showing 2 payment options (no
+bitcoin).
 
 # Reset the demo environment
 
@@ -179,7 +171,7 @@ export const PAYMETHODS: Paymethod[] =[
 ```bash
 cf login
 cd ~/susecap-demostore/order-app
-sh ./deploy.sh
+sh ./deploy-v1.sh
 ```
 
 # Feedback
