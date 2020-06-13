@@ -1,11 +1,8 @@
 # SUSE Shop Demo for SUSE Cloud Application Platform
 
-
-![Watch Demo Video on Youtube](https://youtu.be/Pz7Qno43FFk)
-
-
-
 ![SUSE Shop Demo](/docs/images/demo.png)
+
+[![Watch the demo video](https://img.youtube.com/vi/Pz7Qno43FFk/maxresdefault.jpg)](https://youtu.be/Pz7Qno43FFk)
 
 This is a fictitious case study demonstrating how a company can leverage SUSE Cloud Application Platform (SUSE CAP) to provide agility infrastructure to scale their business as demands suddenly surge.
 
